@@ -92,6 +92,7 @@ def predict(Total_stops,
     # airline = st.selectbox("Select Airline : ", ["Jet Airways", "IndiGo", 'Air India', 'Multiple carriers','SpiceJet', 'Vistara','GoAir','Multiple carriers Premium economy','Trujet'])
 
     if (airline == 'Jet Airways'):
+                        
         Jet_Airways = 1
         IndiGo = 0
         Air_India = 0
@@ -410,7 +411,7 @@ def predict(Total_stops,
             "Destination_Kolkata",
             "Destination_New_Delhi"]
         ))
-    return prediction
+                        return prediction
 
 prediction_flare = model.predict(pd.DataFrame([[
             Total_stops,
@@ -474,7 +475,7 @@ prediction_flare = model.predict(pd.DataFrame([[
             "Destination_Kolkata",
             "Destination_New_Delhi"]
         ))
-    return prediction
+            return prediction
 
 
 st.title("Flight Fare Prediction")
