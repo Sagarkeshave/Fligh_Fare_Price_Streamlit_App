@@ -14,7 +14,7 @@ model = pickle.load(open("rf_model_streamlit.pkl", "rb"))
 # Define the prediction function
 
 def predict(Total_stops,
-            Journey_day,
+            Journey_day2,
             Journey_month,
             Dep_hour,
             Dep_min,
