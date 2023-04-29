@@ -7,7 +7,7 @@ import pickel
 
 # model = RandomForestRegressor()
 
-model = pickle.load(open("rf_model.pkl", "rb"))
+model = pickle.load(open("rf_model_streamlit.pkl", "rb"))
 
 @st.cache
 
