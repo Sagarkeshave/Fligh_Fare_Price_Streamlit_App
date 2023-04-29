@@ -461,7 +461,7 @@ if st.button('Predict Price'):
 
     prediction = model.predict(pd.DataFrame([[
             Total_stops,
-            Journey_day,
+            Journey_day1111,
             Journey_month,
             Dep_hour,
             Dep_min,
