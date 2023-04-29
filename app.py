@@ -444,7 +444,7 @@ Destination = st.selectbox("Destination :" , ["Cochin", "Delhi","New_Delhi","Hyd
 
 
 if st.button('Predict Price'):
-            price = predict(Total_stops,
+            price = model.predict(Total_stops,
             Journey_day,
             Journey_month,
             Dep_hour,
