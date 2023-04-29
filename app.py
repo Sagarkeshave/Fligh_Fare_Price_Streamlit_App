@@ -416,9 +416,7 @@ Source = st.selectbox("Source:", ["Delhi", "Kolkata","Mumbai","Chennai"])
 Destination = st.selectbox("Destination :" , ["Cochin", "Delhi","New_Delhi","Hyderabad", "Kolkata"])
 
 
-
-if st.button('Predict Price'):
-            price = model.predict(Total_stops,
+            price = model.predict([Total_stops,
             Journey_day,
             Journey_month,
             Dep_hour,
@@ -446,7 +444,11 @@ if st.button('Predict Price'):
             Destination_Delhi,
             Destination_Hyderabad,
             Destination_Kolkata,
-            Destination_New_Delhi)
+            Destination_New_Delhi])
+
+
+if st.button('Predict Price'):
+
             st.success(f'Your flare for the flight is Rs{price[0]:.2f}')
             
     
