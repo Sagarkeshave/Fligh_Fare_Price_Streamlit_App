@@ -13,7 +13,35 @@ model = pickle.load(open("rf_model_streamlit.pkl", "rb"))
 
 # Define the prediction function
 
-def predict():
+def predict(Total_stops,
+            Journey_day,
+            Journey_month,
+            Dep_hour,
+            Dep_min,
+            Arrival_hour,
+            Arrival_min,
+            dur_hour,
+            dur_min,
+            Air_India,
+            GoAir,
+            IndiGo,
+            Jet_Airways,
+            Jet_Airways_Business,
+            Multiple_carriers,
+            Multiple_carriers_Premium_economy,
+            SpiceJet,
+            Trujet,
+            Vistara,
+            Vistara_Premium_economy,
+            Source_Chennai,
+            Source_Delhi,
+            Source_Kolkata,
+            Source_Mumbai,
+            Destination_Cochin,
+            Destination_Delhi,
+            Destination_Hyderabad,
+            Destination_Kolkata,
+            Destination_New_Delhi):
 
 
 
@@ -22,9 +50,9 @@ def predict():
     # d = st.date_input(
     #     "When\'s your birthday",
     #     datetime.date(2019, 7, 6))
-    st.title("Flight Fare Prediction")
-    st.image("https://www.google.com/search?q=flight+images+png&tbm=isch&ved=2ahUKEwjxupSg5sz-AhXu6nMBHRWVCcsQ2-cCegQIABAA&oq=flight+images+png&gs_lcp=CgNpbWcQAzIFCAAQgAQyBQgAEIAEMgYIABAFEB4yBggAEAgQHjIGCAAQCBAeOgQIIxAnOgYIABAHEB46BwgAEIoFEEM6CAgAEIAEELEDOgsIABCABBCxAxCDAToKCAAQigUQsQMQQzoNCAAQigUQsQMQgwEQQ1C2DljaM2CGNmgAcAB4AIAB7wGIAYAWkgEGMC4xNy4xmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=y9lLZLGpDe7Vz7sPlaqm2Aw&bih=569&biw=1280&rlz=1C1UEAD_enIN1020IN1020#imgrc=JyEzIuYMazCYPM")
-    date_dep = st.date_input("Dep_Time", datetime.date(2019, 7, 6))
+    # st.title("Flight Fare Prediction")
+    # st.image("https://www.google.com/search?q=flight+images+png&tbm=isch&ved=2ahUKEwjxupSg5sz-AhXu6nMBHRWVCcsQ2-cCegQIABAA&oq=flight+images+png&gs_lcp=CgNpbWcQAzIFCAAQgAQyBQgAEIAEMgYIABAFEB4yBggAEAgQHjIGCAAQCBAeOgQIIxAnOgYIABAHEB46BwgAEIoFEEM6CAgAEIAEELEDOgsIABCABBCxAxCDAToKCAAQigUQsQMQQzoNCAAQigUQsQMQgwEQQ1C2DljaM2CGNmgAcAB4AIAB7wGIAYAWkgEGMC4xNy4xmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=y9lLZLGpDe7Vz7sPlaqm2Aw&bih=569&biw=1280&rlz=1C1UEAD_enIN1020IN1020#imgrc=JyEzIuYMazCYPM")
+    # date_dep = st.date_input("Dep_Time", datetime.date(2019, 7, 6))
     Journey_day = int(pd.to_datetime(date_dep, format="%Y-%m-%dT%H:%M").day)
     Journey_month = int(pd.to_datetime(date_dep, format="%Y-%m-%dT%H:%M").month)
 
@@ -38,7 +66,7 @@ def predict():
 
     # Arrival
     # t = st.time_input('Set an alarm for', datetime.time(8, 45))
-    date_arr = st.time("Arrival_Time", datetime.time(8,45))
+    # date_arr = st.time("Arrival_Time", datetime.time(8,45))
     Arrival_hour = int(pd.to_datetime(date_arr, format="%Y-%m-%dT%H:%M").hour)
     Arrival_min = int(pd.to_datetime(date_arr, format="%Y-%m-%dT%H:%M").minute)
     # print("Arrival : ", Arrival_hour, Arrival_min)
@@ -50,13 +78,13 @@ def predict():
 
     # Total Stops
     # depth = st.number_input('Diamond Depth Percentage:', min_value=0.1, max_value=100.0, value=1.0)
-    Total_stops = st.number_input("Total stops : ", min_value = 1, max_value = 4, value = 1.0)
+    # Total_stops = st.number_input("Total stops : ", min_value = 1, max_value = 4, value = 1.0)
     # print(Total_stops)
 
     # Airline
     # AIR ASIA = 0 (not in column)
     # cut = st.selectbox('Cut Rating:', ['Fair', 'Good', 'Very Good', 'Premium', 'Ideal'])
-    airline = st.selectbox("Select Airline : ", ["Jet Airways", "IndiGo", 'Air India', 'Multiple carriers','SpiceJet', 'Vistara','GoAir','Multiple carriers Premium economy','Trujet'])
+    # airline = st.selectbox("Select Airline : ", ["Jet Airways", "IndiGo", 'Air India', 'Multiple carriers','SpiceJet', 'Vistara','GoAir','Multiple carriers Premium economy','Trujet'])
 
     if (airline == 'Jet Airways'):
         Jet_Airways = 1
@@ -229,7 +257,7 @@ def predict():
     # Source
     # Banglore = 0 (not in column)
     # color = st.selectbox('Color Rating:', ['J', 'I', 'H', 'G', 'F', 'E', 'D'])
-    Source = st.selectbox("Source:", ["Delhi", "Kolkata","Mumbai","Chennai"])
+    # Source = st.selectbox("Source:", ["Delhi", "Kolkata","Mumbai","Chennai"])
     # Source = request.form["Source"]
     if (Source == 'Delhi'):
         Source_Delhi = 1
@@ -268,7 +296,7 @@ def predict():
 
     # Destination
     # Banglore = 0 (not in column)
-    Destination = st.selectbox("Destination :" , ["Cochin", "Delhi","New_Delhi","Hyderabad", "Kolkata"])
+    # Destination = st.selectbox("Destination :" , ["Cochin", "Delhi","New_Delhi","Hyderabad", "Kolkata"])
     # Destination = request.form["Destination"]
     if (Destination == 'Cochin'):
 
@@ -378,9 +406,49 @@ def predict():
             "Destination_New_Delhi"]
         ))
 
-    output = round(prediction[0], 2)
+    # output = round(prediction[0], 2)
     return prediction
 
+
+st.title("Flight Fare Prediction")
+st.image("https://www.google.com/search?q=flight+images+png&tbm=isch&ved=2ahUKEwjxupSg5sz-AhXu6nMBHRWVCcsQ2-cCegQIABAA&oq=flight+images+png&gs_lcp=CgNpbWcQAzIFCAAQgAQyBQgAEIAEMgYIABAFEB4yBggAEAgQHjIGCAAQCBAeOgQIIxAnOgYIABAHEB46BwgAEIoFEEM6CAgAEIAEELEDOgsIABCABBCxAxCDAToKCAAQigUQsQMQQzoNCAAQigUQsQMQgwEQQ1C2DljaM2CGNmgAcAB4AIAB7wGIAYAWkgEGMC4xNy4xmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=y9lLZLGpDe7Vz7sPlaqm2Aw&bih=569&biw=1280&rlz=1C1UEAD_enIN1020IN1020#imgrc=JyEzIuYMazCYPM")
+date_dep = st.date_input("Dep_Time", datetime.date(2019, 7, 6))
+date_arr = st.time("Arrival_Time", datetime.time(8,45))
+Total_stops = st.number_input("Total stops : ", min_value = 1, max_value = 4, value = 1.0)
+airline = st.selectbox("Select Airline : ", ["Jet Airways", "IndiGo", 'Air India', 'Multiple carriers','SpiceJet', 'Vistara','GoAir','Multiple carriers Premium economy','Trujet'])
+Source = st.selectbox("Source:", ["Delhi", "Kolkata","Mumbai","Chennai"])
+Destination = st.selectbox("Destination :" , ["Cochin", "Delhi","New_Delhi","Hyderabad", "Kolkata"])
+
+
+
 if st.button('Predict Price'):
-    price = predict()
+    price = predict(Total_stops,
+            Journey_day,
+            Journey_month,
+            Dep_hour,
+            Dep_min,
+            Arrival_hour,
+            Arrival_min,
+            dur_hour,
+            dur_min,
+            Air_India,
+            GoAir,
+            IndiGo,
+            Jet_Airways,
+            Jet_Airways_Business,
+            Multiple_carriers,
+            Multiple_carriers_Premium_economy,
+            SpiceJet,
+            Trujet,
+            Vistara,
+            Vistara_Premium_economy,
+            Source_Chennai,
+            Source_Delhi,
+            Source_Kolkata,
+            Source_Mumbai,
+            Destination_Cochin,
+            Destination_Delhi,
+            Destination_Hyderabad,
+            Destination_Kolkata,
+            Destination_New_Delhi)
     st.success(f'The predicted price of the diamond is Rs{price[0]:.2f}')
