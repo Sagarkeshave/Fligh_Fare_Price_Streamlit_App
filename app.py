@@ -14,7 +14,7 @@ model = pickle.load(open("rf_model_streamlit.pkl", "rb"))
 # Define the prediction function
 
 def predict(Total_stops,
-            Journey_day2,
+            Journey_day,
             Journey_month,
             Dep_hour,
             Dep_min,
@@ -53,7 +53,7 @@ def predict(Total_stops,
     # st.title("Flight Fare Prediction")
     # st.image("https://www.google.com/search?q=flight+images+png&tbm=isch&ved=2ahUKEwjxupSg5sz-AhXu6nMBHRWVCcsQ2-cCegQIABAA&oq=flight+images+png&gs_lcp=CgNpbWcQAzIFCAAQgAQyBQgAEIAEMgYIABAFEB4yBggAEAgQHjIGCAAQCBAeOgQIIxAnOgYIABAHEB46BwgAEIoFEEM6CAgAEIAEELEDOgsIABCABBCxAxCDAToKCAAQigUQsQMQQzoNCAAQigUQsQMQgwEQQ1C2DljaM2CGNmgAcAB4AIAB7wGIAYAWkgEGMC4xNy4xmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=y9lLZLGpDe7Vz7sPlaqm2Aw&bih=569&biw=1280&rlz=1C1UEAD_enIN1020IN1020#imgrc=JyEzIuYMazCYPM")
     # date_dep = st.date_input("Dep_Time", datetime.date(2019, 7, 6))
-    Journey_day1 = int(pd.to_datetime(date_dep, format="%Y-%m-%dT%H:%M").day)
+    Journey_day = int(pd.to_datetime(date_dep, format="%Y-%m-%dT%H:%M").day)
     Journey_month = int(pd.to_datetime(date_dep, format="%Y-%m-%d").month)
 
     # print("Journey Date : ",Journey_day, Journey_month)
@@ -410,7 +410,7 @@ def predict(Total_stops,
             "Destination_New_Delhi"]
         ))
 
-    # output = round(prediction[0], 2)
+    output = round(prediction[0], 2)
     return prediction
 
 
@@ -427,33 +427,34 @@ Destination = st.selectbox("Destination :" , ["Cochin", "Delhi","New_Delhi","Hyd
 
 
 if st.button('Predict Price'):
-    price = predict(Total_stops,
-            Journey_day3,
-            Journey_month,
-            Dep_hour,
-            Dep_min,
-            Arrival_hour,
-            Arrival_min,
-            dur_hour,
-            dur_min,
-            Air_India,
-            GoAir,
-            IndiGo,
-            Jet_Airways,
-            Jet_Airways_Business,
-            Multiple_carriers,
-            Multiple_carriers_Premium_economy,
-            SpiceJet,
-            Trujet,
-            Vistara,
-            Vistara_Premium_economy,
-            Source_Chennai,
-            Source_Delhi,
-            Source_Kolkata,
-            Source_Mumbai,
-            Destination_Cochin,
-            Destination_Delhi,
-            Destination_Hyderabad,
-            Destination_Kolkata,
-            Destination_New_Delhi)
-    st.success(f'The predicted price of the diamond is Rs{price[0]:.2f}')
+#     price = model.predict([[Total_stops,
+#             Journey_day,
+#             Journey_month,
+#             Dep_hour,
+#             Dep_min,
+#             Arrival_hour,
+#             Arrival_min,
+#             dur_hour,
+#             dur_min,
+#             Air_India,
+#             GoAir,
+#             IndiGo,
+#             Jet_Airways,
+#             Jet_Airways_Business,
+#             Multiple_carriers,
+#             Multiple_carriers_Premium_economy,
+#             SpiceJet,
+#             Trujet,
+#             Vistara,
+#             Vistara_Premium_economy,
+#             Source_Chennai,
+#             Source_Delhi,
+#             Source_Kolkata,
+#             Source_Mumbai,
+#             Destination_Cochin,
+#             Destination_Delhi,
+#             Destination_Hyderabad,
+#             Destination_Kolkata,
+#             Destination_New_Delhi]])
+
+    st.success(f'Your flare for the flight is Rs{output[0]:.2f}')
