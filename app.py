@@ -53,8 +53,8 @@ def predict(Total_stops,
     # st.title("Flight Fare Prediction")
     # st.image("https://www.google.com/search?q=flight+images+png&tbm=isch&ved=2ahUKEwjxupSg5sz-AhXu6nMBHRWVCcsQ2-cCegQIABAA&oq=flight+images+png&gs_lcp=CgNpbWcQAzIFCAAQgAQyBQgAEIAEMgYIABAFEB4yBggAEAgQHjIGCAAQCBAeOgQIIxAnOgYIABAHEB46BwgAEIoFEEM6CAgAEIAEELEDOgsIABCABBCxAxCDAToKCAAQigUQsQMQQzoNCAAQigUQsQMQgwEQQ1C2DljaM2CGNmgAcAB4AIAB7wGIAYAWkgEGMC4xNy4xmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=y9lLZLGpDe7Vz7sPlaqm2Aw&bih=569&biw=1280&rlz=1C1UEAD_enIN1020IN1020#imgrc=JyEzIuYMazCYPM")
     # date_dep = st.date_input("Dep_Time", datetime.date(2019, 7, 6))
-    Journey_day = int(pd.to_datetime(date_dep, format="%Y-%m-%dT%H:%M").day)
-    Journey_month = int(pd.to_datetime(date_dep, format="%Y-%m-%dT%H:%M").month)
+    Journey_day = pd.to_datetime(date_dep, format="%Y-%m-%d").day
+    Journey_month = pd.to_datetime(date_dep, format="%Y-%m-%d").month
 
     # print("Journey Date : ",Journey_day, Journey_month)
 
