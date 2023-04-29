@@ -42,6 +42,7 @@ def predict(Total_stops,
             Destination_Hyderabad,
             Destination_Kolkata,
             Destination_New_Delhi):
+            
 
 
 
@@ -348,7 +349,7 @@ def predict(Total_stops,
 
 
     prediction = model.predict(pd.DataFrame([[
-            Total_stops2,
+            Total_stops,
             Journey_day,
             Journey_month,
             Dep_hour,
@@ -409,11 +410,10 @@ def predict(Total_stops,
             "Destination_Kolkata",
             "Destination_New_Delhi"]
         ))
-
-#     output = round(prediction[0], 2)
     return prediction
+
 prediction_flare = model.predict(pd.DataFrame([[
-            Total_stops1,
+            Total_stops,
             Journey_day,
             Journey_month,
             Dep_hour,
@@ -474,9 +474,7 @@ prediction_flare = model.predict(pd.DataFrame([[
             "Destination_Kolkata",
             "Destination_New_Delhi"]
         ))
-
-# #     output = round(prediction[0], 2)
-#     return prediction
+    return prediction
 
 
 st.title("Flight Fare Prediction")
@@ -492,37 +490,40 @@ Destination = st.selectbox("Destination :" , ["Cochin", "Delhi","New_Delhi","Hyd
 
 
 if st.button('Predict Price'):
-#     price = model.predict([[Total_stops,
-#             Journey_day,
-#             Journey_month,
-#             Dep_hour,
-#             Dep_min,
-#             Arrival_hour,
-#             Arrival_min,
-#             dur_hour,
-#             dur_min,
-#             Air_India,
-#             GoAir,
-#             IndiGo,
-#             Jet_Airways,
-#             Jet_Airways_Business,
-#             Multiple_carriers,
-#             Multiple_carriers_Premium_economy,
-#             SpiceJet,
-#             Trujet,
-#             Vistara,
-#             Vistara_Premium_economy,
-#             Source_Chennai,
-#             Source_Delhi,
-#             Source_Kolkata,
-#             Source_Mumbai,
-#             Destination_Cochin,
-#             Destination_Delhi,
-#             Destination_Hyderabad,
-#             Destination_Kolkata,
-#             Destination_New_Delhi]])
+            price = predict(Total_stops,
+            Journey_day,
+            Journey_month,
+            Dep_hour,
+            Dep_min,
+            Arrival_hour,
+            Arrival_min,
+            dur_hour,
+            dur_min,
+            Air_India,
+            GoAir,
+            IndiGo,
+            Jet_Airways,
+            Jet_Airways_Business,
+            Multiple_carriers,
+            Multiple_carriers_Premium_economy,
+            SpiceJet,
+            Trujet,
+            Vistara,
+            Vistara_Premium_economy,
+            Source_Chennai,
+            Source_Delhi,
+            Source_Kolkata,
+            Source_Mumbai,
+            Destination_Cochin,
+            Destination_Delhi,
+            Destination_Hyderabad,
+            Destination_Kolkata,
+            Destination_New_Delhi)
+            st.success(f'Your flare for the flight is Rs{price[0]:.2f}')
+            
+    
 
 
 
 
-    st.success(f'Your flare for the flight is Rs{prediction_flare[0]:.2f}')
+    
