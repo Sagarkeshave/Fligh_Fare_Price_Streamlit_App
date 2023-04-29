@@ -348,7 +348,7 @@ def predict(Total_stops,
 
 
     prediction = model.predict(pd.DataFrame([[
-            Total_stops,
+            Total_stops2,
             Journey_day,
             Journey_month,
             Dep_hour,
@@ -413,7 +413,7 @@ def predict(Total_stops,
 #     output = round(prediction[0], 2)
     return prediction
 prediction_flare = model.predict(pd.DataFrame([[
-            Total_stops,
+            Total_stops1,
             Journey_day,
             Journey_month,
             Dep_hour,
