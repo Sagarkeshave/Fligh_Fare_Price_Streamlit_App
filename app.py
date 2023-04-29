@@ -411,7 +411,8 @@ def predict(Total_stops,
             "Destination_Kolkata",
             "Destination_New_Delhi"]
         ))
-                        return prediction
+            return prediction
+                        
 
 prediction_flare = model.predict(pd.DataFrame([[
             Total_stops,
@@ -474,7 +475,10 @@ prediction_flare = model.predict(pd.DataFrame([[
             "Destination_Hyderabad",
             "Destination_Kolkata",
             "Destination_New_Delhi"]
+            
         ))
+
+
             return prediction
 
 
