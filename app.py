@@ -410,7 +410,7 @@ def predict(Total_stops,
             "Destination_New_Delhi"]
         ))
 
-    output = round(prediction[0], 2)
+#     output = round(prediction[0], 2)
     return prediction
 
 
@@ -457,4 +457,4 @@ if st.button('Predict Price'):
 #             Destination_Kolkata,
 #             Destination_New_Delhi]])
 
-    st.success(f'Your flare for the flight is Rs{output[0]:.2f}')
+    st.success(f'Your flare for the flight is Rs{prediction[0]:.2f}')
