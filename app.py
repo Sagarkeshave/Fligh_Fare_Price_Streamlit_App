@@ -416,7 +416,7 @@ Source = st.selectbox("Source:", ["Delhi", "Kolkata","Mumbai","Chennai"])
 Destination = st.selectbox("Destination :" , ["Cochin", "Delhi","New_Delhi","Hyderabad", "Kolkata"])
 
 
-            price = model.predict([Total_stops,
+price = model.predict([Total_stops,
             Journey_day,
             Journey_month,
             Dep_hour,
