@@ -477,10 +477,12 @@ Journey_day = int(pd.to_datetime(date_dep, format="%Y-%m-%dT%H:%M").day)
 Journey_month = int(pd.to_datetime(date_dep, format="%Y-%m-%dT%H:%M").month)
 
 #Input time for departure
+
 time_dep = st.time_input("Departure_Time", datetime.time(8, 45))
-time_dep = time_dep.split(sep=":")
-Dep_hour = int(time_dep[0])
-Dep_min = int(time_dep[1])
+dep_time= str(time_dep)
+time_dep_ = dep_time.split(sep=":")
+Dep_hour = int(time_dep_[0])
+Dep_min = int(time_dep_[1])
 
 # Input for arrival time
 date_arr = st.time_input("Arrival_Time", datetime.time(8,45))
