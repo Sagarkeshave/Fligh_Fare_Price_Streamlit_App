@@ -18,7 +18,7 @@ st.text_input("Enter your Name: ", key="name")
 
 
 #User_input date for jrny day and month
-date_dep = st.date_input("Departure_Day", datetime.date(2019, 7, 6))
+date_dep = st.date_input("Departure_Day", datetime.date(2023, 5, 1))
 Journey_day = int(pd.to_datetime(date_dep, format="%Y-%m-%dT%H:%M").day)
 Journey_month = int(pd.to_datetime(date_dep, format="%Y-%m-%dT%H:%M").month)
 
