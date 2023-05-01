@@ -13,7 +13,7 @@ st.header("Flight Fare Prediction App")
 st.text_input("Enter your Name: ", key="name")
 
 if st.checkbox('Show Training Dataframe'):
-    data
+    data.head(30)
 
 #User_input date for jrny day and month
 date_dep = st.date_input("Departure_Day", datetime.date(2019, 7, 6))
