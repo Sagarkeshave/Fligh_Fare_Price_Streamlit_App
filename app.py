@@ -3,11 +3,14 @@ import numpy as np
 import pandas as pd
 import pickle
 import datetime
-
+from PIL import Image
 
 model = pickle.load(open("rf_model_streamlit.pkl", "rb"))
 
 
+image = Image.open('download.jpg')
+
+st.image(image)
 
 st.header("Flight Fare Prediction App")
 st.text_input("Enter your Name: ", key="name")
