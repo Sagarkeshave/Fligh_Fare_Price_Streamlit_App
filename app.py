@@ -7,13 +7,12 @@ import datetime
 
 model = pickle.load(open("rf_model_streamlit.pkl", "rb"))
 
-data = pd.read_excel("https://raw.githubusercontent.com/Sagarkeshave/Fligh_Fare_Price_Streamlit_App/master/dataset.csv") 
+
 
 st.header("Flight Fare Prediction App")
 st.text_input("Enter your Name: ", key="name")
 
-if st.checkbox('Show Training Dataframe'):
-    data.head(30)
+
 
 #User_input date for jrny day and month
 date_dep = st.date_input("Departure_Day", datetime.date(2019, 7, 6))
