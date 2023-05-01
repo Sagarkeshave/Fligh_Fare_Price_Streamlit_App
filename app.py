@@ -486,7 +486,8 @@ Dep_min = int(time_dep_[1])
 
 # Input for arrival time
 date_arr = st.time_input("Arrival_Time", datetime.time(8,45))
-date_arr= date_arr.spilt(sep=":")
+arr_date = str(date_arr)
+date_arr= arr_date.split(sep=":")
 Arrival_hour = int(date_arr[0])
 Arrival_min = int(date_arr[1])
 
