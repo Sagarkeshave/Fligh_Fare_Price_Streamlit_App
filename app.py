@@ -10,7 +10,7 @@ model = pickle.load(open("rf_model_streamlit.pkl", "rb"))
 
 image = Image.open('download.jpg')
 
-st.image(image, width=800)
+st.image(image, width=650)
 
 st.header("Flight Fare Prediction App")
 st.text_input("Enter your Name: ", key="name")
