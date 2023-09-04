@@ -1,25 +1,28 @@
 # Flight Fare Prediction Streamlit App
+.
+.
+.
+.
 
-![App Screenshot](/screenshot.png)
+![App Screenshot](https://github.com/Sagarkeshave/Fligh_Fare_Price_Streamlit_App/blob/main/screenshots/Screenshot%20(176).png)
+![App Screenshot](https://github.com/Sagarkeshave/Fligh_Fare_Price_Streamlit_App/blob/main/screenshots/Screenshot%20(177).png)
 
 This is a Streamlit web application that predicts flight fares based on various features like airline, source, destination, departure date, and more. It uses a machine learning model to make predictions.
 
 ## Table of Contents
 
 - [Demo](#demo)
-- [Getting Started](#getting-started)
+  
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Demo
 
-[Link to the live demo](#) (If hosted online)
+[Link to the live demo](https://sagarkeshave-fligh-fare-price-streamlit-app-app-94mgyo.streamlit.app/)
 
-## Getting Started
 
 ### Prerequisites
 
@@ -32,3 +35,19 @@ This is a Streamlit web application that predicts flight fares based on various 
 
    ```bash
    git clone https://github.com/Sagarkeshave/Fligh_Fare_Price_Streamlit_App.git
+   
+
+```bash
+pip install -r requirements.txt
+
+### Usage
+Run the Streamlit app:
+
+```bash
+streamlit run app.py
+
+Open your web browser and navigate to http://localhost:8501 to use the app.
+
+### Features
+ * Predict flight fares based on user input.
+ * Interactive user interface built with Streamlit.
